@@ -8,7 +8,7 @@
 	</parent>
 	<artifactId>employee-server</artifactId>
 	<packaging>war</packaging>
-	<properties>		
+	<properties>
 		<failOnMissingWebXml>fail</failOnMissingWebXml>
 	</properties>
 </project>

@@ -10,6 +10,7 @@ import moc.employee.dao.SessionModel;
 import moc.employee.dao.UserDao;
 import moc.employee.dao.UserModel;
 import moc.employee.util.ModelUtils;
+import moc.employee.util.StringUtils;
 
 @Service
 public class SessionServiceImpl implements SessionService {
@@ -55,10 +56,10 @@ public class SessionServiceImpl implements SessionService {
 
 	@Override
 	public boolean hasAccess(String token) {
-		if (token == null) {
+		if (StringUtils.noValue(token)) {
 			return false;
 		}
-		return true;
+		return sessionDao.inStore(token);
 	}
 
 }

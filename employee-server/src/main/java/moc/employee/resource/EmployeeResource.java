@@ -21,9 +21,9 @@ public interface EmployeeResource {
 
 	public static final String PATH_READ = "/{id}";
 
-	public static final String PATH_UPDATE = "/{id}/update";
+	public static final String PATH_UPDATE = "/update";
 
-	public static final String PATH_DELETE = "/{id}/delete";
+	public static final String PATH_DELETE = "/delete";
 
 	@GET
 	@Path(PATH_LIST)
@@ -48,14 +48,12 @@ public interface EmployeeResource {
 	@Path(PATH_UPDATE)
 	@Consumes({ MediaType.APPLICATION_JSON })
 	@Produces({ MediaType.APPLICATION_JSON })
-	public Response employeeUpdate(@HeaderParam(AuthResource.PARAM_TOKEN) String token,
-			@PathParam("id") String employeeId, JAXBElement<EmployeeDTO> dto);
+	public Response employeeUpdate(@HeaderParam(AuthResource.PARAM_TOKEN) String token, JAXBElement<EmployeeDTO> dto);
 
 	@DELETE
 	@Path(PATH_DELETE)
 	@Consumes({ MediaType.APPLICATION_JSON })
 	@Produces({ MediaType.APPLICATION_JSON })
-	public Response employeeDelete(@HeaderParam(AuthResource.PARAM_TOKEN) String token,
-			@PathParam("id") String employeeId, JAXBElement<EmployeeDTO> dto);
+	public Response employeeDelete(@HeaderParam(AuthResource.PARAM_TOKEN) String token, JAXBElement<EmployeeDTO> dto);
 
 }

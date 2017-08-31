@@ -1,6 +1,10 @@
-# eclipse
-.settings
+# GIT
+.gitignore
 
+# ECLIPSE
+.settings
+.classpath
+.project
 
 # maven
 /maven/

@@ -1,9 +1,18 @@
 package moc.employee.resource;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "authentication")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class AuthDTO {
 
+	@XmlElement(nillable = false)
 	private String username;
 
+	@XmlElement(nillable = false)
 	private String password;
 
 	private String accessToken;

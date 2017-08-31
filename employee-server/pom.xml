@@ -12,7 +12,7 @@
 		<!-- PROJECT DEPENDENCY VERSIONS -->
 		<spring.version>4.0.4.RELEASE</spring.version>
 		<resteasy.version>3.0.8.Final</resteasy.version>
-		<!-- <hibernate.version>4.3.5.Final</hibernate.version> -->
+		<hibernate.version>4.3.5.Final</hibernate.version>
 	</properties>
 	<dependencies>
 		<!-- PROJECT DEPENDENCIES -->
@@ -32,22 +32,24 @@
 			<groupId>org.jboss.resteasy</groupId>
 			<artifactId>resteasy-jaxrs</artifactId>
 			<version>${resteasy.version}</version>
-			<scope>${resteasy.scope}</scope>
 		</dependency>
-
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-spring</artifactId>
+			<version>${resteasy.version}</version>
+		</dependency>
 		<!-- HIBERNATE -->
-		<!-- <dependency> -->
-		<!-- <groupId>org.hibernate</groupId> -->
-		<!-- <artifactId>hibernate-core</artifactId> -->
-		<!-- <version>${hibernate.version}</version> -->
-		<!-- </dependency> -->
-		<!-- <dependency> -->
-		<!-- <groupId>com.h2database</groupId> -->
-		<!-- <artifactId>h2</artifactId> -->
-		<!-- <version>1.4.196</version> -->
-		<!-- <scope>test</scope> -->
-		<!-- </dependency> -->
-
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>1.4.196</version>
+			<scope>test</scope>
+		</dependency>
 		<!-- REST OLD -->
 		<!-- <dependency> -->
 		<!-- <groupId>org.jboss.resteasy</groupId> -->
@@ -57,15 +59,8 @@
 		<!-- </dependency> -->
 		<!-- <dependency> -->
 		<!-- <groupId>org.jboss.resteasy</groupId> -->
-		<!-- <artifactId>resteasy-jaxb-provider</artifactId> -->
-		<!-- <version>${resteasy.version}</version> -->
-		<!-- <scope>${resteasy.scope}</scope> -->
-		<!-- </dependency> -->
-		<!-- <dependency> -->
-		<!-- <groupId>org.jboss.resteasy</groupId> -->
 		<!-- <artifactId>resteasy-jackson-provider</artifactId> -->
 		<!-- <version>${resteasy.version}</version> -->
-		<!-- <scope>${resteasy.scope}</scope> -->
 		<!-- </dependency> -->
 		<!-- <dependency> -->
 		<!-- <groupId>org.jboss.resteasy</groupId> -->
@@ -75,7 +70,7 @@
 		<!-- </dependency> -->
 		<!-- <dependency> -->
 		<!-- <groupId>org.jboss.resteasy</groupId> -->
-		<!-- <artifactId>resteasy-spring</artifactId> -->
+		<!-- <artifactId>resteasy-jaxb-provider</artifactId> -->
 		<!-- <version>${resteasy.version}</version> -->
 		<!-- </dependency> -->
 	</dependencies>

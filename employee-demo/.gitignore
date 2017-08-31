@@ -3,5 +3,5 @@
 
 
 # maven
-/maven
-/target
+/maven/
+*/target/

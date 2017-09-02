@@ -15,6 +15,7 @@ public class SessionDaoImpl extends AbstractDaoImpl<SessionModel> implements Ses
 	private HashMap<String, SessionModel> sessionStore;
 
 	public SessionDaoImpl() {
+		super(SessionModel.class);
 		sessionStore = new HashMap<String, SessionModel>();
 	}
 

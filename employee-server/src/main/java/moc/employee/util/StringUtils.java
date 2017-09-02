@@ -12,4 +12,8 @@ public class StringUtils {
 		return value == null || value.isEmpty();
 	}
 
+	public static boolean withinLength(String value, int length) {
+		return value.length() <= length;
+	}
+
 }

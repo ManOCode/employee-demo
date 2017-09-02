@@ -17,16 +17,23 @@ public class AuthResourceImpl implements AuthResource {
 
 	@Override
 	public Response authorise(JAXBElement<AuthDTO> dto) {
-		AuthDTO auth = dto.getValue();
-		String accessToken = sessionService.login(auth.getUsername(), auth.getPassword());
+		AuthDTO authDTO = dto.getValue();
+		AuthValidator validator = new AuthValidator(authDTO);
+		if (!validator.validateUsername()) {
+
+		}
+		if (!validator.validatePassword()) {
+
+		}
+		String accessToken = sessionService.login(authDTO.getUsername(), authDTO.getPassword());
 		if (StringUtils.noValue(accessToken)) {
 			return RESPONSE_UNAUTHORIZED;
 		} else {
-			auth.setUsername(null);
-			auth.setPassword(null);
-			auth.setAccessToken(accessToken);
+			authDTO.setUsername(null);
+			authDTO.setPassword(null);
+			authDTO.setAccessToken(accessToken);
 		}
-		return Response.ok(auth).build();
+		return BUILDER_OK.entity(authDTO).build();
 	}
 
 }

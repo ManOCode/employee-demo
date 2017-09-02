@@ -27,6 +27,16 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
 		<!-- REST -->
 		<dependency>
 			<groupId>org.jboss.resteasy</groupId>
@@ -48,7 +58,12 @@
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 			<version>1.4.196</version>
-			<scope>test</scope>
+			<!-- <scope>test</scope> -->
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
 		</dependency>
 		<!-- REST OLD -->
 		<!-- <dependency> -->

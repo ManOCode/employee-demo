@@ -12,44 +12,39 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.xml.bind.JAXBElement;
 
+import org.jboss.resteasy.annotations.providers.jaxb.json.BadgerFish;
+
 @Path("/api/employee")
-public interface EmployeeResource {
+public interface EmployeeResource extends Resource {
 
-	public static final String PATH_LIST = "/";
-
-	public static final String PATH_CREATE = "/create";
-
-	public static final String PATH_READ = "/{id}";
-
-	public static final String PATH_UPDATE = "/update";
-
-	public static final String PATH_DELETE = "/delete";
-
+	@BadgerFish
 	@GET
-	@Path(PATH_LIST)
-	@Consumes({ MediaType.APPLICATION_JSON })
+	@Path(PATH_ROOT)
 	@Produces({ MediaType.APPLICATION_JSON })
 	public Response employeeList(@HeaderParam(AuthResource.PARAM_TOKEN) String token);
 
+	@BadgerFish
 	@POST
 	@Path(PATH_CREATE)
 	@Consumes({ MediaType.APPLICATION_JSON })
 	@Produces({ MediaType.APPLICATION_JSON })
 	public Response employeeCreate(@HeaderParam(AuthResource.PARAM_TOKEN) String token, JAXBElement<EmployeeDTO> dto);
 
+	@BadgerFish
 	@GET
-	@Path(PATH_READ)
-	@Consumes({ MediaType.APPLICATION_JSON })
+	@Path(PATH_ID)
 	@Produces({ MediaType.APPLICATION_JSON })
 	public Response employeeRead(@HeaderParam(AuthResource.PARAM_TOKEN) String token,
-			@PathParam("id") String employeeId);
+			@PathParam(PARAM_ID) String employeeId);
 
+	@BadgerFish
 	@POST
 	@Path(PATH_UPDATE)
 	@Consumes({ MediaType.APPLICATION_JSON })
 	@Produces({ MediaType.APPLICATION_JSON })
 	public Response employeeUpdate(@HeaderParam(AuthResource.PARAM_TOKEN) String token, JAXBElement<EmployeeDTO> dto);
 
+	@BadgerFish
 	@DELETE
 	@Path(PATH_DELETE)
 	@Consumes({ MediaType.APPLICATION_JSON })

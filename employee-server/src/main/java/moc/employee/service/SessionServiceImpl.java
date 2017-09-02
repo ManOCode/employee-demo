@@ -59,6 +59,7 @@ public class SessionServiceImpl implements SessionService {
 		if (StringUtils.noValue(token)) {
 			return false;
 		}
+		sessionDao.updateStore(token, new Date());
 		return sessionDao.inStore(token);
 	}
 

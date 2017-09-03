@@ -4,6 +4,7 @@ import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import moc.employee.dao.SessionDao;
 import moc.employee.dao.SessionModel;
@@ -13,6 +14,7 @@ import moc.employee.util.ModelUtils;
 import moc.employee.util.StringUtils;
 
 @Service
+@Transactional
 public class SessionServiceImpl implements SessionService {
 
 	@Autowired

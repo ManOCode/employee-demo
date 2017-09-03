@@ -67,7 +67,7 @@ public class EmployeeResourceImpl implements EmployeeResource {
 		if (!validator.validateId()) {
 			return RESPONSE_BADREQUEST_ID;
 		}
-		dto = managerService.employee(dto);
+		dto = managerService.employeeFind(dto);
 		return BUILDER_OK.entity(dto).build();
 	}
 

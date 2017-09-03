@@ -13,7 +13,7 @@ public interface ManagerService {
 
 	public EmployeeDTO employeeCreate(EmployeeDTO dto);
 
-	public EmployeeDTO employee(EmployeeDTO dto);
+	public EmployeeDTO employeeFind(EmployeeDTO dto);
 
 	public EmployeeDTO employeeUpdate(EmployeeDTO dto);
 

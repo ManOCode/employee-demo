@@ -30,7 +30,7 @@ public class DateUtils {
 		int year = currentYear - calendarYear;
 		calendar.add(Calendar.YEAR, year);
 		if (year > 0) {
-			if (calendar.before(current)) {
+			if (calendar.after(current)) {
 				year -= 1;
 			}
 		} else if (year < 0) {

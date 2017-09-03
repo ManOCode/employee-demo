@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import moc.employee.dao.EmployeeDao;
 import moc.employee.dao.EmployeeModel;
@@ -16,6 +17,7 @@ import moc.employee.resource.LevelDTO;
 import moc.employee.util.DateUtils;
 
 @Service
+@Transactional
 public class ManagerServiceImpl implements ManagerService {
 
 	@Autowired
@@ -52,12 +54,11 @@ public class ManagerServiceImpl implements ManagerService {
 		EmployeeModel model = new EmployeeModel();
 		model = employeeMerge(model, dto);
 		employeeDao.create(model);
-		dto.setId(Long.toString(model.getId()));
-		return dto;
+		return employeeConvert(model);
 	}
 
 	@Override
-	public EmployeeDTO employee(EmployeeDTO dto) {
+	public EmployeeDTO employeeFind(EmployeeDTO dto) {
 		EmployeeModel model = employeeRetrieve(dto);
 		return employeeConvert(model);
 	}
@@ -73,8 +74,9 @@ public class ManagerServiceImpl implements ManagerService {
 	@Override
 	public EmployeeDTO employeeDelete(EmployeeDTO dto) {
 		EmployeeModel model = employeeRetrieve(dto);
-		employeeDao.delete(model);
+		dto = employeeConvert(model);
 		dto.setId(null);
+		employeeDao.delete(model);		
 		return dto;
 	}
 

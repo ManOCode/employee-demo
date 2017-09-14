@@ -1,8 +1,8 @@
 package moc.employee.dao;
 
 import java.util.Date;
-import java.util.HashMap;
 import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Repository;
@@ -12,11 +12,11 @@ import moc.employee.util.ModelUtils;
 @Repository
 public class SessionDaoImpl extends AbstractDaoImpl<SessionModel> implements SessionDao {
 
-	private HashMap<String, SessionModel> sessionStore;
+	private ConcurrentHashMap<String, SessionModel> sessionStore;
 
 	public SessionDaoImpl() {
 		super(SessionModel.class);
-		sessionStore = new HashMap<String, SessionModel>();
+		sessionStore = new ConcurrentHashMap<String, SessionModel>();
 	}
 
 	@Override
